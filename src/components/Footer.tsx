@@ -1,36 +1,40 @@
-// components/Footer.tsx
-import { Link } from "react-router-dom";
 import { Instagram, Twitter, Facebook, Linkedin } from "lucide-react";
 
 type FooterProps = {
   onOpenTerms: () => void;
+  onOpenFaq: () => void;
 };
 
-export default function Footer({ onOpenTerms }: FooterProps) {
+export default function Footer({ onOpenTerms, onOpenFaq }: FooterProps) {
   return (
     <footer className="bg-[#01172C] text-white py-12 px-6 mt-12">
       <div className="max-w-7xl mx-auto text-center space-y-6">
-        {/* Links */}
         <div className="flex justify-center gap-6 text-sm">
-          <Link to="/faq" className="hover:opacity-80 transition">
+          <button
+            type="button"
+            onClick={onOpenFaq}
+            className="hover:opacity-80 transition"
+          >
             Contact
-          </Link>
+          </button>
 
-          <Link to="/faq" className="hover:opacity-80 transition">
+          <button
+            type="button"
+            onClick={onOpenFaq}
+            className="hover:opacity-80 transition focus:outline-none focus:ring-2 focus:ring-white/40 rounded"
+          >
             FAQ
-          </Link>
+          </button>
 
-          {/* ✅ Now opens modal instead of routing */}
           <button
             type="button"
             onClick={onOpenTerms}
-            className="hover:opacity-80 transition"
+            className="hover:opacity-80 transition focus:outline-none focus:ring-2 focus:ring-white/40 rounded"
           >
             Terms and Conditions
           </button>
         </div>
 
-        {/* Social Icons */}
         <div className="flex justify-center gap-6">
           <Instagram className="w-5 h-5 hover:opacity-80 cursor-pointer" />
           <Twitter className="w-5 h-5 hover:opacity-80 cursor-pointer" />
@@ -38,7 +42,6 @@ export default function Footer({ onOpenTerms }: FooterProps) {
           <Linkedin className="w-5 h-5 hover:opacity-80 cursor-pointer" />
         </div>
 
-        {/* Copyright */}
         <p className="text-xs text-white/70">
           © 2022 Loadrivo. All right reserved
         </p>

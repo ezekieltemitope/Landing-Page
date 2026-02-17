@@ -1,6 +1,8 @@
 // LandingPage.tsx
 import { useState } from "react";
 import TermsModal from "./components/TermsModal";
+import FaqContactModal from "./components/FaqContactModal";
+
 import Navbar from "./components/Navbar";
 import { HeroSection } from "./components/HeroSection";
 import EarnSection from "./components/EarnSection";
@@ -13,11 +15,14 @@ import Footer from "./components/Footer";
 
 export default function LandingPage() {
   const [termsOpen, setTermsOpen] = useState(false);
+  const [faqOpen, setFaqOpen] = useState(false);
 
   return (
-    <>
-      <Navbar />
+    <div className="overflow-x-hidden">
+      {/* Navbar */}
+      <Navbar onOpenFaq={() => setFaqOpen(true)} />
 
+      {/* Main Sections */}
       <HeroSection />
       <EarnSection />
       <MoveBiggerLoadsSection />
@@ -26,11 +31,16 @@ export default function LandingPage() {
       <WideBannerSection />
       <MoveAnythingSection />
 
-      {/* Footer opens Terms modal */}
-      <Footer onOpenTerms={() => setTermsOpen(true)} />
+      {/* Footer */}
+      <Footer
+        onOpenTerms={() => setTermsOpen(true)}
+        onOpenFaq={() => setFaqOpen(true)}
+      />
 
-      {/* Overlay modal */}
+      {/* Modals */}
       <TermsModal open={termsOpen} onClose={() => setTermsOpen(false)} />
-    </>
+
+      <FaqContactModal open={faqOpen} onClose={() => setFaqOpen(false)} />
+    </div>
   );
 }

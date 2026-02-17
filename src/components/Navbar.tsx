@@ -1,7 +1,11 @@
 /* components/Navbar.tsx */
 import { motion } from "framer-motion";
 
-export default function Navbar() {
+type NavbarProps = {
+  onOpenFaq: () => void;
+};
+
+export default function Navbar({ onOpenFaq }: NavbarProps) {
   return (
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
@@ -19,12 +23,21 @@ export default function Navbar() {
       </div>
 
       <div className="flex gap-8 text-sm">
-        <a href="#contact" className="hover:opacity-80 transition">
+        <button
+          type="button"
+          onClick={onOpenFaq}
+          className="hover:opacity-80 transition"
+        >
           Contact
-        </a>
-        <a href="#faq" className="hover:opacity-80 transition">
+        </button>
+
+        <button
+          type="button"
+          onClick={onOpenFaq}
+          className="hover:opacity-80 transition"
+        >
           FAQ
-        </a>
+        </button>
       </div>
     </motion.nav>
   );
