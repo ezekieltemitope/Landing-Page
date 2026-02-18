@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 
 export function HeroSection() {
   return (
-    <section className="min-h-screen bg-[#01172C] text-white flex items-center overflow-x-hidden">
+    <section
+      id="hero"
+      className="min-h-screen bg-[#01172C] text-white flex items-center overflow-x-hidden"
+    >
       <div className="max-w-5xl mx-auto px-6 lg:px-12 w-full text-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}

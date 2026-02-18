@@ -13,11 +13,18 @@ export default function Navbar({ onOpenFaq }: NavbarProps) {
       transition={{ duration: 0.6 }}
       className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-10 py-6 bg-[#01172C] text-white"
     >
-      <div className="flex items-center gap-3">
+      <div
+        onClick={() =>
+          document.getElementById("hero")?.scrollIntoView({
+            behavior: "smooth",
+          })
+        }
+        className="flex items-center gap-3 cursor-pointer"
+      >
         <img
           src="/LOGO3.png"
           alt="Loadrivo logo"
-          className="w-10 h-10 object-contain"
+          className="w-10 h-10 object-cover rounded-lg"
         />
         <span className="text-lg font-semibold">Loadrivo</span>
       </div>
